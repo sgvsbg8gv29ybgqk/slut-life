@@ -1,11 +1,10 @@
 <script lang="ts">
+	import Play from '$lib/components/templates/play.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="SL Home" />
+	<title>Play</title>
+	<meta name="description" content="SL Play" />
 </svelte:head>
 
-<section>
-	<span>Hello World</span>
-</section>
+<Play />

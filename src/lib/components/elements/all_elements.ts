@@ -55,16 +55,6 @@ export const base_variable_props = {
 	cost_effect: 'option_effect'
 } as const;
 
-export const base_variable_order = [
-	'cost',
-	'dependencies',
-	'conflicts',
-	'point_costs',
-	'variable_dependencies',
-	'variable_costs',
-	'cost_effect'
-] as const;
-
 // ========== Props and Params ==========
 
 // Header

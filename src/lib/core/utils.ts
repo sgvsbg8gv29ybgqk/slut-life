@@ -1,4 +1,5 @@
 import type { all_content_type } from '$lib/stores/content';
+import type { gamestate_type } from '$lib/stores/gamestate';
 import type { Readable } from 'svelte/store';
 import uuid from './uuid';
 
@@ -64,4 +65,22 @@ export function get_all_options(sections: editable_list_type, content: all_conte
 			for (let item of content[section.id])
 				if (!black_list.has(item.template)) result.push({ name: (item as any).name, id: item.id });
 	return result;
+}
+
+export function test_variables(
+	all_states: gamestate_type,
+	variable_dependencies: [string, string][]
+) {
+	for (let test of variable_dependencies) {
+		let x = all_states.variables[test[0]] || 0;
+		if (!eval(test[1])) return false;
+	}
+	return true;
+}
+
+export function calc_point_mods(point_mods: string[], value: number) {
+	point_mods.sort();
+	let x = value;
+	for (let i of point_mods) x = eval(i);
+	return x;
 }

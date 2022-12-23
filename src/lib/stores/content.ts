@@ -77,3 +77,15 @@ export const current_content = derived(
 		return $content[$current_section_read];
 	}
 );
+
+export const name_map = derived([content], ([$content]) => {
+	let result: { [id: string]: string } = {};
+	for (let i of Object.keys($content)) {
+		for (let j of $content[i]) {
+			if ((j as any).name) {
+				result[j.id] = (j as any).name;
+			}
+		}
+	}
+	return result;
+});
