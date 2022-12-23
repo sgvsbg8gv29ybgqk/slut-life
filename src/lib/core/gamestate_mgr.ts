@@ -144,7 +144,7 @@ export function change_state(
 		// dependencies
 		change_dependencies(all_states, all_content, all_sections, current_section, id, 1);
 		// conflicts
-		change_conflicts(all_states, all_content, all_sections, current_section, id, -1, updates);
+		change_conflicts(all_states, all_content, all_sections, current_section, id, 1, updates);
 		// cost effect
 		for (let i of element.cost_effect) {
 			const old_state = all_states.option_states[i[0]] || default_option_state();
@@ -157,7 +157,7 @@ export function change_state(
 		// dependencies
 		change_dependencies(all_states, all_content, all_sections, current_section, id, -1);
 		// conflicts
-		change_conflicts(all_states, all_content, all_sections, current_section, id, 1, updates);
+		change_conflicts(all_states, all_content, all_sections, current_section, id, -1, updates);
 		// cost effect
 		for (let i of element.cost_effect) {
 			const old_state = all_states.option_states[i[0]] || default_option_state();
